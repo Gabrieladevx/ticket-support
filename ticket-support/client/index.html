@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Tickets de Suporte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎫 Sistema de Tickets de Suporte</h1>
+            <nav>
+                <button onclick="mostrarPagina('tickets')" class="nav-btn">Meus Tickets</button>
+                <button onclick="mostrarPagina('novo')" class="nav-btn">Novo Ticket</button>
+                <button onclick="mostrarPagina('conhecimento')" class="nav-btn">Base de Conhecimento</button>
+            </nav>
+        </header>
+
+        <!-- Página: Novo Ticket -->
+        <section id="novo" class="pagina">
+            <h2>Criar Novo Ticket</h2>
+            <form id="formNovoTicket">
+                <input type="email" id="email" placeholder="Seu email" required>
+                <input type="text" id="titulo" placeholder="Título do problema" required>
+                <textarea id="descricao" placeholder="Descreva o problema..." required></textarea>
+                <select id="prioridade" title="Prioridade do ticket">
+                    <option value="baixa">🟢 Baixa</option>
+                    <option value="média" selected>🟡 Média</option>
+                    <option value="alta">🔴 Alta</option>
+                </select>
+                <button type="submit">Criar Ticket</button>
+            </form>
+        </section>
+
+        <!-- Página: Meus Tickets -->
+        <section id="tickets" class="pagina hidden">
+            <h2>Meus Tickets</h2>
+            <div id="listaTickets" class="tickets-grid">
+                <!-- Preenchido dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Página: Base de Conhecimento -->
+        <section id="conhecimento" class="pagina hidden">
+            <h2>Base de Conhecimento</h2>
+            <div id="listaConhecimento" class="knowledge-list">
+                <!-- Preenchido dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Modal para detalhes do ticket -->
+        <div id="modalTicket" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal()">&times;</span>
+                <h2 id="ticketTitulo"></h2>
+                <div id="ticketDetalhes"></div>
+                <button id="btnDeletarTicket" class="btn-deletar" onclick="deletarTicket()">🗑️ Deletar Ticket</button>
+                <div id="chatArea">
+                    <div id="mensagensChat" class="chat-messages"></div>
+                    <form id="formChat" onsubmit="enviarMensagem(event)">
+                        <input type="text" id="inputMensagem" placeholder="Digite sua mensagem..." required>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para artigo da base de conhecimento -->
+        <div id="modalArtigo" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModalArtigo()">&times;</span>
+                <h2 id="artigoTitulo"></h2>
+                <div id="artigoCategoria"></div>
+                <div id="artigoConteudo" class="artigo-conteudo"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

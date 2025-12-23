@@ -1,0 +1,29 @@
+{
+    "tasks": [
+        {
+            "label": "Instalar dependências",
+            "type": "shell",
+            "command": "cd server && npm install",
+            "problemMatcher": []
+        },
+        {
+            "label": "Iniciar servidor",
+            "type": "shell",
+            "command": "cd server && npm start",
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*rodando.*",
+                    "endsPattern": "^.*rodando.*"
+                }
+            }
+        }
+    ]
+}

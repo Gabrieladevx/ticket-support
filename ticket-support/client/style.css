@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    background: white;
+    color: #667eea;
+}
+
+.pagina {
+    padding: 40px;
+    animation: fadeIn 0.3s;
+    display: block;
+}
+
+.pagina.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+input, textarea, select {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Grid de Tickets */
+.tickets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.ticket-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #667eea;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-id {
+    font-size: 0.85em;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.ticket-titulo {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ticket-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status-aberto {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-em-andamento {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-fechado {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.ticket-prioridade {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.knowledge-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.article-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid #764ba2;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.article-card:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.article-titulo {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.article-categoria {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+.article-preview {
+    color: #666;
+    line-height: 1.5;
+    max-height: 100px;
+    overflow: hidden;
+    font-size: 0.95em;
+}
+
+.article-card:hover .article-preview {
+    overflow: visible;
+}
+
+.artigo-conteudo {
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #333;
+    font-size: 1.05em;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #000;
+}
+
+#ticketDetalhes {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#chatArea {
+    margin-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.chat-messages {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+}
+
+.mensagem {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background: white;
+}
+
+.mensagem-usuario {
+    background: #e7f3ff;
+    border-left: 4px solid #667eea;
+}
+
+.mensagem-agente {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.mensagem-autor {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #666;
+}
+
+#formChat {
+    display: flex;
+    gap: 10px;
+}
+
+#inputMensagem {
+    flex: 1;
+}
+
+#formChat button {
+    width: auto;
+    min-width: 100px;
+}
+
+.btn-deletar {
+    background: #dc3545;
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+}
+
+.btn-deletar:hover {
+    background: #c82333;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
+
+    .tickets-grid, .knowledge-list {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+}
